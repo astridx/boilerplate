@@ -7,7 +7,7 @@
 	<authorUrl>[AUTHOR_URL]</authorUrl>
 	<copyright>[COPYRIGHT]</copyright>
 	<license>GNU General Public License version 2 or later;</license>
-	<version>1.23.0</version>
+	<version>1.24.0</version>
 	<description>COM_FOOS_XML_DESCRIPTION</description>
 	<namespace>Joomla\Component\Foos</namespace>
 	<scriptfile>script.php</scriptfile>
@@ -66,4 +66,8 @@
 			<folder>language</folder>
 		</files>
 	</administration>
+	<changelogurl>https://example.com/.../changelog.xml</changelogurl>
+	<updateservers>
+		<server type="extension" name="Foo Updates">http://example.com/.../foo_update.xml</server>
+	</updateservers>
 </extension>
