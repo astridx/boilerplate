@@ -76,11 +76,6 @@ class FoosModel extends ListModel
 
 		// Select the required fields from the table.
 		$query->select(
-			$db->quoteName(array('a.id', 'a.name', 'a.catid', 'a.access', 'a.published', 'a.publish_up', 'a.publish_down', 'a.language'))
-		);
-
-		// Select the required fields from the table.
-		$query->select(
 			$db->quoteName(
 				explode(
 					', ',
@@ -89,8 +84,8 @@ class FoosModel extends ListModel
 						'a.id, a.name, a.catid' .
 						', a.access' .
 						', a.language' .
-						', a.ordering AS ordering' .
-						', a.state AS state' .
+						', a.ordering' .
+						', a.state' .
 						', a.published' .
 						', a.publish_up, a.publish_down'
 					)
