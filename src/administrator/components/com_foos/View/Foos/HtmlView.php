@@ -20,7 +20,6 @@ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\Component\Foos\Administrator\Helper\FooHelper;
-use Joomla\CMS\Language\Multilanguage;
 
 /**
  * View class for a list of foos.
@@ -106,13 +105,6 @@ class HtmlView extends BaseHtmlView
 			FooHelper::addSubmenu('foos');
 			$this->addToolbar();
 			$this->sidebar = \JHtmlSidebar::render();
-
-			// We do not need to filter by language when multilingual is disabled
-			if (!Multilanguage::isEnabled())
-			{
-				unset($this->activeFilters['language']);
-				$this->filterForm->removeField('language', 'filter');
-			}
 		}
 		else
 		{
