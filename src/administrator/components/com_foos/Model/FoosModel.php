@@ -83,6 +83,8 @@ class FoosModel extends ListModel
 						'list.select',
 						'a.id, a.name, a.catid' .
 						', a.access' .
+						', a.checked_out' .
+						', a.checked_out_time' .
 						', a.language' .
 						', a.ordering' .
 						', a.state' .
