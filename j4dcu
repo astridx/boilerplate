@@ -3444,6 +3444,33 @@ At this point in the tutorial, your component should contain the following files
 
 = Using languages files - Part 8 =
 
+In case you are not familiar with Joomla extensions, the source site language folder contains one file: en-GB.com_mywalks.ini, which contains the translated values of fixed strings, used to allow translation from English into other languages. The folder structure is simple:
+
+site                                     - the folder containing the site files       
+     language                            - the folder containing the site language translation file
+          en-GB                          - the folder containing English translations
+               en-GB.com_mywalks.ini     - the file of translated keys
+
+And the en-GB.com_mywalks.ini contains this:
+
+COM_MYWALKS_ERROR_WALK_NOT_FOUND=&quot;Walk not found!&quot;
+COM_MYWALKS_LIST_PAGE_HEADING=&quot;List of Walks&quot;
+COM_MYWALKS_LIST_TITLE=&quot;Title&quot;
+COM_MYWALKS_LIST_DESCRIPTION=&quot;Description&quot;
+COM_MYWALKS_LIST_DISTANCE=&quot;Distance in Km&quot;
+COM_MYWALKS_LIST_LAST_VISIT=&quot;Last Visit&quot;
+COM_MYWALKS_LIST_NVISITS=&quot;nVisits&quot;
+COM_MYWALKS_LIST_TABLE_CAPTION=&quot;List of Walks&quot;
+
+COM_MYWALKS_WALK_REPORTS=&quot;Walk Reports&quot;
+COM_MYWALKS_WALK_DATE=&quot;Visit date&quot;
+COM_MYWALKS_WALK_WEATHER=&quot;Weather Report&quot;
+
+For each line, the first part is a key and the second part is its value, the English translation Any fixed text in the component site interface should be in this file. For example, the walks list column headings should be keys in the source code and translated here. Note also that the primary language of Joomla is British English. Other languages need separate translation files.
+
+The admin language files: Todo!
+
+
 == Requirements ==
 You need Joomla! 4.x for this tutorial (as of writing currently Joomla! 4.0.0-alpha11-dev)
 
@@ -14658,6 +14685,15 @@ look at how to make the layout consistent while also saving lines of code.
 
 
 = Adding a Layout - Part 20 =
+
+
+The content and presentation of a website should be separated according 
+to the principle of separation of concerns. 
+Even within your PHP scripts you can structure the code into different 
+files depending on the task. 
+So you can define recurring elements such as the page header, 
+the navigation and the footer as a template and then call from the page or embed. This allows changes to the page structure to be made centrally.
+
 
 In this chapter, we'll look at how to make the layout consistent while 
 also saving lines of code.
