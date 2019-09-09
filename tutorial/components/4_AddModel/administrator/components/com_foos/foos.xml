@@ -10,7 +10,7 @@
 	<version>4.0.0</version>
 	<description>COM_FOOS_XML_DESCRIPTION</description>
 	<namespace>Joomla\Component\Foos</namespace>
-    <scriptfile>script.php</scriptfile>
+	<scriptfile>script.php</scriptfile>
 	<!-- Frond-end files -->
 	<files folder="components/com_foos">
 		<folder>Controller</folder>
