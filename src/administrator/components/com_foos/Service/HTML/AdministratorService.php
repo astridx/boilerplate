@@ -14,7 +14,7 @@ defined('JPATH_BASE') or die;
 /**
  * Foo HTML class.
  *
- * @since  1.0
+ * @since  1.0.0
  */
 class AdministratorService
 {

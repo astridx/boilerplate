@@ -16,7 +16,7 @@ use Joomla\CMS\MVC\Controller\BaseController;
 /**
  * Foos master display controller.
  *
- * @since  1.0
+ * @since  1.0.0
  */
 class DisplayController extends BaseController
 {
@@ -24,7 +24,7 @@ class DisplayController extends BaseController
 	 * The default view.
 	 *
 	 * @var    string
-	 * @since  1.0
+	 * @since  1.0.0
 	 */
 	protected $default_view = 'foos';
 
@@ -36,7 +36,9 @@ class DisplayController extends BaseController
 	 *
 	 * @return  BaseController|bool  This object to support chaining.
 	 *
-	 * @since   1.0
+	 * @since   1.0.0
+	 *
+	 * @throws  \Exception
 	 */
 	public function display($cachable = false, $urlparams = array())
 	{

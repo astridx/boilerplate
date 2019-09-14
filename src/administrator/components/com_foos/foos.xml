@@ -10,7 +10,9 @@
 	<version>1.0.0</version>
 	<description>COM_FOOS_XML_DESCRIPTION</description>
 	<namespace>Joomla\Component\Foos</namespace>
-    <scriptfile>script.php</scriptfile>
+
+	<scriptfile>script.php</scriptfile>
+
 	<!-- Back-end files -->
 	<administration>
 		<!-- Menu entries -->
@@ -22,10 +24,13 @@
 			<filename>foos.xml</filename>
 			<folder>Controller</folder>
 			<folder>Extension</folder>
+			<folder>language</folder>
 			<folder>Service</folder>
 			<folder>View</folder>
 			<folder>services</folder>
 			<folder>tmpl</folder>
 		</files>
 	</administration>
+
+	<dlid prefix="dlid=" suffix="" />
 </extension>
