@@ -34,7 +34,7 @@ class Com_FoosInstallerScript
 	 * @var    string
 	 * @since  1.0.0
 	 */
-	private $minimumPHPVersion = 8;
+	private $minimumPHPVersion = JOOMLA_MINIMUM_PHP;
 
 	/**
 	 * Method to install the extension
