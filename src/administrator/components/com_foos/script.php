@@ -1,16 +1,13 @@
 <?php
-
 /**
- * @package    [PACKAGE_NAME]
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
  *
- * @author     [AUTHOR] <[AUTHOR_EMAIL]>
- * @copyright  [COPYRIGHT]
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
- * @link       [AUTHOR_URL]
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-// No direct access to this file
 defined('_JEXEC') or die;
-
+use Joomla\CMS\Installer\InstallerAdapter;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Log\Log;
 
@@ -18,21 +15,24 @@ use Joomla\CMS\Log\Log;
  * Script file of Foo Component
  *
  * @since  1.0.0
- *
  */
-class FoosInstallerScript
+class Com_FoosInstallerScript
 {
 	/**
-	 * Extension script constructor.
+	 * Minimum Joomla version to check
 	 *
+	 * @var    string
 	 * @since  1.0.0
-	 *
 	 */
-	public function __construct()
-	{
-		$this->minimumJoomla = '4.0';
-		$this->minimumPhp = JOOMLA_MINIMUM_PHP;
-	}
+	private $minimumJoomlaVersion = '4.0';
+
+	/**
+	 * Minimum PHP version to check
+	 *
+	 * @var    string
+	 * @since  1.0.0
+	 */
+	private $minimumPHPVersion = JOOMLA_MINIMUM_PHP;
 
 	/**
 	 * Method to install the extension
@@ -42,11 +42,10 @@ class FoosInstallerScript
 	 * @return  boolean  True on success
 	 *
 	 * @since  1.0.0
-	 *
 	 */
-	public function install($parent)
+	public function install($parent): bool
 	{
-		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UNINSTALL');
+		echo Text::_('COM_FOOS_INSTALLERSCRIPT_INSTALL');
 
 		return true;
 	}
@@ -59,9 +58,8 @@ class FoosInstallerScript
 	 * @return  boolean  True on success
 	 *
 	 * @since  1.0.0
-	 *
 	 */
-	public function uninstall($parent)
+	public function uninstall($parent): bool
 	{
 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UNINSTALL');
 
@@ -78,7 +76,7 @@ class FoosInstallerScript
 	 * @since  1.0.0
 	 *
 	 */
-	public function update($parent)
+	public function update($parent): bool
 	{
 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
 
@@ -95,23 +93,35 @@ class FoosInstallerScript
 	 *
 	 * @since  1.0.0
 	 *
+	 * @throws Exception
 	 */
-	public function preflight($type, $parent)
+	public function preflight($type, $parent): bool
 	{
-		// Check for the minimum PHP version before continuing
-		if (!empty($this->minimumPhp) && version_compare(PHP_VERSION, $this->minimumPhp, '<'))
+		if ($type !== 'uninstall')
 		{
-			Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPhp), Log::WARNING, 'jerror');
+			// Check for the minimum PHP version before continuing
+			if (!empty($this->minimumPHPVersion) && version_compare(PHP_VERSION, $this->minimumPHPVersion, '<'))
+			{
+				Log::add(
+					Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPHPVersion),
+					Log::WARNING,
+					'jerror'
+				);
 
-			return false;
-		}
+				return false;
+			}
 
-		// Check for the minimum Joomla version before continuing
-		if (!empty($this->minimumJoomla) && version_compare(JVERSION, $this->minimumJoomla, '<'))
-		{
-			Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomla), Log::WARNING, 'jerror');
+			// Check for the minimum Joomla version before continuing
+			if (!empty($this->minimumJoomlaVersion) && version_compare(JVERSION, $this->minimumJoomlaVersion, '<'))
+			{
+				Log::add(
+					Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomlaVersion),
+					Log::WARNING,
+					'jerror'
+				);
 
-			return false;
+				return false;
+			}
 		}
 
 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_PREFLIGHT');

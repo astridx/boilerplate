@@ -20,7 +20,7 @@ use Joomla\Registry\Registry;
 /**
  * Foo model for the Joomla Foos component.
  *
- * @since  1.0
+ * @since  1.0.0
  */
 class FooModel extends BaseDatabaseModel
 {

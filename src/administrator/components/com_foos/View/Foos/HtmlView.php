@@ -23,7 +23,7 @@ use Joomla\Component\Foos\Administrator\Helper\FooHelper;
 /**
  * View class for a list of foos.
  *
- * @since  1.0
+ * @since  1.0.0
  */
 class HtmlView extends BaseHtmlView
 {
@@ -74,11 +74,11 @@ class HtmlView extends BaseHtmlView
 	 *
 	 * @param   string  $tpl  A template file to load. [optional]
 	 *
-	 * @return  mixed  A string if successful, otherwise an \Exception object.
+	 * @return  void
 	 *
-	 * @since   1.0
+	 * @since   1.0.0
 	 */
-	public function display($tpl = null)
+	public function display($tpl = null): void
 	{
 		$this->items = $this->get('Items');
 		$this->pagination = $this->get('Pagination');
@@ -125,7 +125,7 @@ class HtmlView extends BaseHtmlView
 			}
 		}
 
-		return parent::display($tpl);
+		parent::display($tpl);
 	}
 
 	/**

@@ -18,7 +18,7 @@ use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
 /**
  * Foos Component Controller
  *
- * @since  1.0
+ * @since  1.0.0
  */
 class DisplayController extends BaseController
 {

@@ -70,4 +70,5 @@
 	<updateservers>
 		<server type="extension" name="Foo Updates">http://example.com/.../foo_update.xml</server>
 	</updateservers>
+	<dlid prefix="dlid=" suffix="" />
 </extension>
