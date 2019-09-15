@@ -41,5 +41,4 @@ class FooController extends FormController
 
 		return parent::batch($model);
 	}
-
 }

@@ -14,6 +14,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Associations;
 use Joomla\CMS\MVC\Model\ListModel;
+use Joomla\Utilities\ArrayHelper;
 
 /**
  * Methods supporting a list of foo records.
@@ -75,20 +76,22 @@ class FoosModel extends ListModel
 
 		// Select the required fields from the table.
 		$query->select(
-			$this->getState(
-				'list.select',
-				'a.id AS id,'
-				. 'a.name AS name,'
-				. 'a.access,'
-				. 'a.language,'
-				. 'a.ordering AS ordering,'
-				. 'a.checked_out AS checked_out,'
-				. 'a.checked_out_time AS checked_out_time,'
-				. 'a.state AS state,'
-				. 'a.catid AS catid,'
-				. 'a.published AS published,'
-				. 'a.publish_up,'
-				. 'a.publish_down'
+			$db->quoteName(
+				explode(
+					', ',
+					$this->getState(
+						'list.select',
+						'a.id, a.name, a.catid' .
+						', a.access' .
+						', a.checked_out' .
+						', a.checked_out_time' .
+						', a.language' .
+						', a.ordering' .
+						', a.state' .
+						', a.published' .
+						', a.publish_up, a.publish_down'
+					)
+				)
 			)
 		);
 
@@ -212,27 +215,8 @@ class FoosModel extends ListModel
 		// Filter on the language.
 		if ($language = $this->getState('filter.language'))
 		{
-			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
-		}
-
-		// Filter by a single tag.
-		$tagId = $this->getState('filter.tag');
-
-		if (is_numeric($tagId))
-		{
-			$query->where($db->quoteName('tagmap.tag_id') . ' = ' . (int) $tagId)
-				->join(
-					'LEFT',
-					$db->quoteName('#__contentitem_tag_map', 'tagmap')
-					. ' ON ' . $db->quoteName('tagmap.content_item_id') . ' = ' . $db->quoteName('a.id')
-					. ' AND ' . $db->quoteName('tagmap.type_alias') . ' = ' . $db->quote('com_foos.contact')
-				);
-		}
-
-		// Filter on the level.
-		if ($level = $this->getState('filter.level'))
-		{
-			$query->where('c.level <= ' . (int) $level);
+			$query->where($db->quoteName('a.language') . ' = :language');
+			$query->bind(':language', $language);
 		}
 
 		// Add the list ordering clause.

@@ -6,7 +6,6 @@
 		label="COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY"
 		description="COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DESC"
 		>
-
 		<field
 			name="show_foo_name_label"
 			type="list"
@@ -45,7 +44,6 @@
 		label="JCONFIG_PERMISSIONS_LABEL"
 		description="JCONFIG_PERMISSIONS_DESC"
 		>
-
 		<field
 			name="rules"
 			type="rules"
@@ -55,6 +53,5 @@
 			component="com_foos"
 			section="component"
 		/>
-
 	</fieldset>
 </config>

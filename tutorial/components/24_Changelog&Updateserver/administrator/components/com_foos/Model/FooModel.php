@@ -35,7 +35,7 @@ class FooModel extends AdminModel
 	 * The context used for the associations table
 	 *
 	 * @var    string
-	 * @since  1.0
+	 * @since  3.4.4
 	 */
 	protected $associationsContext = 'com_foos.item';
 
@@ -78,7 +78,6 @@ class FooModel extends AdminModel
 
 		return $form;
 	}
-
 	/**
 	 * Method to get the data that should be injected in the form.
 	 *
@@ -144,6 +143,7 @@ class FooModel extends AdminModel
 	 */
 	protected function preprocessForm(\JForm $form, $data, $group = 'content')
 	{
+		// Association contact items
 		if (Associations::isEnabled())
 		{
 			$languages = LanguageHelper::getContentLanguages(false, true, null, 'ordering', 'asc');
