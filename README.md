@@ -1,7 +1,16 @@
 https://blog.astrid-guenther.de/der-weg-zu-joomlae4-erweiterungen/
 
 # Boilerplate and Tutorial Sample Files
-Boilerplate files for Joomla! 4 extensions.
+Boilerplate files for Joomla! 4 extensions. *Use [duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh) to replace Foo, FOO and foo with the name you want for the extension.*. You have to change the strings at the beginning:
+```
+ex="yourname"
+Ex="Yourname"
+EX="YOURNAME"
+...
+```
+
+You had to run the script twice.
+
 
 # Tutorial Sample Files
 You can find the Tutorial Sample Files in the folder *Tutorial* :)
